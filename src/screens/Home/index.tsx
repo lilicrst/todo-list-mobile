@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import { Header } from "../../components/Header";
+import { Task } from "../../components/Task";
 import { styles } from "./styles";
 
 export function Home() {
@@ -21,9 +22,7 @@ export function Home() {
           </View>
         </View>
 
-
-        <Text>Tarefa 1</Text>
-        <Text>Tarefa 1</Text>
+        <Task />
 
       </View>
 

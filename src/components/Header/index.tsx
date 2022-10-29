@@ -1,5 +1,6 @@
 import { styles } from './styles'
-import {View, Text, TextInput, Image, TouchableHighlight} from 'react-native'
+import {View, Text, TextInput, Image, TouchableHighlight, Button} from 'react-native'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 export function Header(){
   return (
@@ -19,9 +20,7 @@ export function Header(){
       />
 
       <TouchableHighlight style={styles.button}>            
-        <Text style={styles.textButon}>
-          +
-        </Text>
+        <Ionicons name='add-circle-outline' size={18} color='#f2f2f2' />
       </TouchableHighlight>
     </View>
 

@@ -23,6 +23,8 @@ export function Home() {
         </View>
 
         <Task />
+        <Task />
+        <Task />
 
       </View>
 

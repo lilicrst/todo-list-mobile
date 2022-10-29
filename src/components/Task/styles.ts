@@ -3,16 +3,23 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   container:{
     width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+
     backgroundColor: '#262626',
     borderWidth: 1,
     borderColor: '#333333',
     borderRadius: 8,
+    
     paddingVertical: 12,
-    paddingHorizontal: 12
+    paddingHorizontal: 12,
+    marginBottom: 8
   },
   taskText: {
+    flex: 1,
     color: '#f2f2f2',
-    fontSize: 14
+    fontSize: 14,
+    paddingHorizontal: 8
   }
 })
 

@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginBottom: 10
   },
   createdTaskInfo: {
     color: '#1E6F9F',

@@ -43,9 +43,5 @@ export const styles = StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  textButon: {
-    fontSize: 24,
-    color: '#f2f2f2'
   }
 })

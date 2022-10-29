@@ -1,32 +1,32 @@
-import { Image, Text, TextInput, TouchableHighlight, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
+import { Header } from "../../components/Header";
 import { styles } from "./styles";
 
 export function Home() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <Header />
 
-        <View style={styles.todoLogo}>
-          <Image
-            source={require('/home/lisandra/GitHub/todo-list-mobile/assets/todoLogo.png')}
-          />
+      <View style={styles.tasks}>
+
+        <View style={styles.info}>
+          <View style={styles.info}>
+            <Text style={styles.createdTaskInfo}>Criadas</Text>
+            <Text style={styles.couter}>5</Text>
+          </View>
+
+          <View style={styles.info}>
+            <Text style={styles.completeTaskInfo}>Concluídas</Text>
+            <Text style={styles.couter}>2</Text>
+          </View>
         </View>
 
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Adicione uma nova tarefa"
-            placeholderTextColor="#808080"
-          />
 
-          <TouchableHighlight style={styles.button}>            
-            <Text style={styles.textButon}>
-              +
-            </Text>
-          </TouchableHighlight>
-        </View>
+        <Text>Tarefa 1</Text>
+        <Text>Tarefa 1</Text>
 
       </View>
+
     </View>
   )
 }

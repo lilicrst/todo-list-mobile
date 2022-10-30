@@ -5,9 +5,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#1a1a1a'
   },
-  tasks: {
+  tasksList: {
     width: '100%',
-    marginTop: 70,
     paddingHorizontal: 24,
   },
   info: {

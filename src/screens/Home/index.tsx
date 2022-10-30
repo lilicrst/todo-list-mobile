@@ -1,14 +1,33 @@
-import { Text, View } from "react-native";
+import { Text, View, FlatList } from "react-native";
 import { Header } from "../../components/Header";
 import { Task } from "../../components/Task";
 import { styles } from "./styles";
 
 export function Home() {
+
+  const tasks = [
+    'Terminar esse desafio',
+    'Começar módulo 2 de React Native',
+    'Melhorar meu portfólio',
+    'Terminar desafio de React',
+    'Aprender coisas novas',
+    'Pesquisar nas documentações',
+    'Integer urna massa libero auctor neque turpis turpis semper.',
+    'Integer urna interdum massa libero auctor turpis turpis semper.',
+    'Integer urna interdum massa libero auctor neque turpis turpis.',
+    'Terminar o desafio',
+    'Fazer a FlatList funcionar'
+  ]
+
+  function handleTaskRemove() {
+
+  }
+
   return (
     <View style={styles.container}>
       <Header />
 
-      <View style={styles.tasks}>
+      <View style={styles.tasksList}>
 
         <View style={styles.info}>
           <View style={styles.info}>
@@ -21,12 +40,21 @@ export function Home() {
             <Text style={styles.couter}>2</Text>
           </View>
         </View>
-
-        <Task />
-        <Task />
-        <Task />
-
       </View>
+
+      <FlatList
+        style={styles.tasksList}
+        data={tasks}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <Task
+            key={item}
+            text={item}
+            onRemove={() => handleTaskRemove}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+      />
 
     </View>
   )

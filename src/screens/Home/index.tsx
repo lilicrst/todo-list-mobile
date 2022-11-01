@@ -6,6 +6,7 @@ import { styles } from "./styles";
 export function Home() {
 
   const tasks = [
+    'ListEmptyComponent na aula Lista de participantes',
     'Terminar esse desafio',
     'Começar módulo 2 de React Native',
     'Melhorar meu portfólio',
@@ -13,10 +14,8 @@ export function Home() {
     'Aprender coisas novas',
     'Pesquisar nas documentações',
     'Integer urna massa libero auctor neque turpis turpis semper.',
-    'Integer urna interdum massa libero auctor turpis turpis semper.',
     'Integer urna interdum massa libero auctor neque turpis turpis.',
-    'Terminar o desafio',
-    'Fazer a FlatList funcionar'
+    'Terminar o desafio'
   ]
 
   function handleTaskRemove() {

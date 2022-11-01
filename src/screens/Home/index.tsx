@@ -2,6 +2,7 @@ import { Text, View, FlatList } from "react-native";
 import { Header } from "../../components/Header";
 import { Task } from "../../components/Task";
 import { styles } from "./styles";
+import { ListEmpty } from "../../components/ListEmpty";
 
 export function Home() {
 
@@ -43,7 +44,7 @@ export function Home() {
 
       <FlatList
         style={styles.tasksList}
-        data={tasks}
+        data={[]}
         keyExtractor={item => item}
         renderItem={({ item }) => (
           <Task
@@ -53,6 +54,9 @@ export function Home() {
           />
         )}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <ListEmpty />
+        )}
       />
 
     </View>

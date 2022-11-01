@@ -12,18 +12,6 @@ export function Header(){
       />
     </View>
 
-    <View style={styles.form}>
-      <TextInput
-        style={styles.input}
-        placeholder="Adicione uma nova tarefa"
-        placeholderTextColor="#808080"
-      />
-
-      <TouchableHighlight style={styles.button}>            
-        <Ionicons name='add-circle-outline' size={18} color='#f2f2f2' />
-      </TouchableHighlight>
-    </View>
-
   </View>
   )
 }

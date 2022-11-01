@@ -34,7 +34,34 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 2,
     marginLeft: 8
+  },
+  form: {
+    flexDirection: 'row',
+    width: '100%',    
+    marginBottom: 32,
+    alignItems: 'center',
+    paddingHorizontal: 24
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#262626',
+    borderWidth: 1,
+    borderRadius: 6,
+    borderColor: '#0d0d0d',
+    color: '#fff',
+    fontSize: 16,
+    padding: 16,
+    marginRight: 4
+  },
+  button: {
+    width: 54,
+    height: 54,
+    backgroundColor: '#1E6F9F',
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
+
 })
 
 

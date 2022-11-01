@@ -1,23 +1,20 @@
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, TextInput, TouchableHighlight } from "react-native";
 import { Header } from "../../components/Header";
 import { Task } from "../../components/Task";
 import { styles } from "./styles";
 import { ListEmpty } from "../../components/ListEmpty";
+import Ionicons from '@expo/vector-icons/Ionicons'
+import { useState } from "react";
 
 export function Home() {
+  const [tasks, setTasks] = useState<string[]>([])
+  const [textTask, setTextTask] = useState('')
 
-  const tasks = [
-    'ListEmptyComponent na aula Lista de participantes',
-    'Terminar esse desafio',
-    'Começar módulo 2 de React Native',
-    'Melhorar meu portfólio',
-    'Terminar desafio de React',
-    'Aprender coisas novas',
-    'Pesquisar nas documentações',
-    'Integer urna massa libero auctor neque turpis turpis semper.',
-    'Integer urna interdum massa libero auctor neque turpis turpis.',
-    'Terminar o desafio'
-  ]
+  function handleTaskAdd() {
+    console.log("task adicionada")
+    setTasks(prevState => [...prevState, textTask])
+    setTextTask('')
+  }
 
   function handleTaskRemove() {
 
@@ -26,6 +23,20 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Header />
+
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder="Adicione uma nova tarefa"
+          placeholderTextColor="#808080"
+          onChangeText={setTextTask}
+          value={textTask}
+        />
+
+        <TouchableHighlight style={styles.button} onPress={handleTaskAdd}>
+          <Ionicons name='add-circle-outline' size={18} color='#f2f2f2' />
+        </TouchableHighlight>
+      </View>
 
       <View style={styles.tasksList}>
 
@@ -44,7 +55,7 @@ export function Home() {
 
       <FlatList
         style={styles.tasksList}
-        data={[]}
+        data={tasks}
         keyExtractor={item => item}
         renderItem={({ item }) => (
           <Task

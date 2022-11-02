@@ -11,13 +11,12 @@ export function Home() {
   const [textTask, setTextTask] = useState('')
 
   function handleTaskAdd() {
-    console.log("task adicionada")
     setTasks(prevState => [...prevState, textTask])
     setTextTask('')
   }
 
-  function handleTaskRemove() {
-
+  function handleTaskRemove(taskToRemove: string) {
+    setTasks(tasks.filter(task => task !== taskToRemove))
   }
 
   return (
@@ -61,7 +60,7 @@ export function Home() {
           <Task
             key={item}
             text={item}
-            onRemove={() => handleTaskRemove}
+            onRemove={() => handleTaskRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}

@@ -19,6 +19,10 @@ export function Home() {
     setTasks(tasks.filter(task => task !== taskToRemove))
   }
 
+  function handleCheckChange(taskToMark: string) {
+    console.log(`Marcar "${taskToMark}" como concluída.`)
+  }
+
   return (
     <View style={styles.container}>
       <Header />
@@ -61,6 +65,8 @@ export function Home() {
             key={item}
             text={item}
             onRemove={() => handleTaskRemove(item)}
+            onCheckChange={() => handleCheckChange(item)}
+            isComplete={false}
           />
         )}
         showsVerticalScrollIndicator={false}

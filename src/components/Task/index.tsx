@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import { styles } from './styles'
 import Ionicons from '@expo/vector-icons/Ionicons'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 type Props = {
   text: string;
@@ -12,13 +12,11 @@ type Props = {
 
 export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
-  const [checkState, setCheckState] = useState(false)
+  const [checkState, setCheckState] = useState(isComplete)
 
   function handleChangeState(){
-    onCheckChange();
-    console.log("mudou")
-    setCheckState(!checkState);
-    console.log(checkState)
+    onCheckChange();    
+    setCheckState(!checkState);    
   }
 
   function checkIcon(state: boolean) {
@@ -45,7 +43,7 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
   return (
     <View style={styles.container}>
-      {checkIcon(checkState)}
+      {checkIcon(checkState)}      
       <Text
         style={styles.taskText}>
         {text}

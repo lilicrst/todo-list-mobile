@@ -9,35 +9,9 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 24,
   },
-  info: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10
-  },
-  createdTaskInfo: {
-    color: '#1E6F9F',
-    fontWeight: 'bold',
-    fontSize: 14
-  },
-  completeTaskInfo: {
-    color: '#5E60CE',
-    fontWeight: 'bold',
-    fontSize: 14,
-    
-  },
-  couter: {
-    fontWeight: 'bold',
-    fontSize: 12,
-    backgroundColor: '#333333',
-    color: '#d9d9d9',
-    borderRadius: 999,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    marginLeft: 8
-  },
   form: {
     flexDirection: 'row',
-    width: '100%',    
+    width: '100%',
     marginBottom: 32,
     alignItems: 'center',
     paddingHorizontal: 24
@@ -61,7 +35,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }
-
 })
 
 

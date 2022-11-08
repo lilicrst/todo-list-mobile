@@ -19,10 +19,11 @@ export function Home() {
     setTasks(tasks.filter(task => task.text !== taskToRemove))
   }
 
-  function handleCheckChange(taskToMark: string) {
+  function handleCheckChange(taskToMark: string) {    
     tasks.map(task => {
       if (task.text == taskToMark) {        
-        task.isComplete = !task.isComplete        
+        task.isComplete = !task.isComplete 
+        console.log(task.isComplete)       
       }      
     })
     

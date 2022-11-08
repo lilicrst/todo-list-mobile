@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native'
 import { styles } from './styles'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import { useEffect, useState } from 'react';
 
 type Props = {
   text: string;
@@ -11,6 +12,15 @@ type Props = {
 
 export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
+  const [checkState, setCheckState] = useState(false)
+
+  function handleChangeState(){
+    onCheckChange();
+    console.log("mudou")
+    setCheckState(!checkState);
+    console.log(checkState)
+  }
+
   function checkIcon(state: boolean) {
     if (state == false) {
       return (
@@ -18,7 +28,7 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
           name='radio-button-off'
           size={20}
           color='#4EA8DE'
-          onPress={onCheckChange}
+          onPress={handleChangeState}
         />
       )
     } else {
@@ -27,7 +37,7 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
           name='checkmark-circle'
           size={20}
           color='#8284FA'
-          onPress={onCheckChange}
+          onPress={handleChangeState}          
         />
       )
     }
@@ -35,7 +45,7 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
   return (
     <View style={styles.container}>
-      {checkIcon(isComplete)}
+      {checkIcon(checkState)}
       <Text
         style={styles.taskText}>
         {text}

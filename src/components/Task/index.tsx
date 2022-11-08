@@ -11,14 +11,31 @@ type Props = {
 
 export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
+  function checkIcon(state: boolean) {
+    if (state == false) {
+      return (
+        <Ionicons
+          name='radio-button-off'
+          size={20}
+          color='#4EA8DE'
+          onPress={onCheckChange}
+        />
+      )
+    } else {
+      return (
+        <Ionicons
+          name='checkmark-circle'
+          size={20}
+          color='#8284FA'
+          onPress={onCheckChange}
+        />
+      )
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <Ionicons
-        name='radio-button-off'
-        size={20}
-        color='#4EA8DE'
-        onPress={onCheckChange}
-      />
+      {checkIcon(isComplete)}
       <Text
         style={styles.taskText}>
         {text}

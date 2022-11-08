@@ -7,20 +7,25 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import { useState } from "react";
 
 export function Home() {
-  const [tasks, setTasks] = useState<string[]>([])
+  const [tasks, setTasks] = useState<{text: string, isComplete: boolean}[]>([])
   const [textTask, setTextTask] = useState('')
 
   function handleTaskAdd() {
-    setTasks(prevState => [...prevState, textTask])
+    setTasks(prevState => [...prevState, {text: textTask, isComplete: false}])
     setTextTask('')
   }
 
   function handleTaskRemove(taskToRemove: string) {
-    setTasks(tasks.filter(task => task !== taskToRemove))
+    setTasks(tasks.filter(task => task.text !== taskToRemove))
   }
 
   function handleCheckChange(taskToMark: string) {
-    console.log(`Marcar "${taskToMark}" como concluída.`)
+    tasks.map(task => {
+      if (task.text == taskToMark) {        
+        task.isComplete = !task.isComplete        
+      }      
+    })
+    
   }
 
   return (
@@ -59,14 +64,14 @@ export function Home() {
       <FlatList
         style={styles.tasksList}
         data={tasks}
-        keyExtractor={item => item}
+        keyExtractor={(item) => item.text}
         renderItem={({ item }) => (
           <Task
-            key={item}
-            text={item}
-            onRemove={() => handleTaskRemove(item)}
-            onCheckChange={() => handleCheckChange(item)}
-            isComplete={false}
+            key={item.text}
+            text={item.text}
+            onRemove={() => handleTaskRemove(item.text)}
+            onCheckChange={() => handleCheckChange(item.text)}
+            isComplete={item.isComplete}
           />
         )}
         showsVerticalScrollIndicator={false}

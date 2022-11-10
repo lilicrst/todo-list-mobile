@@ -14,9 +14,9 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
 
   const [checkState, setCheckState] = useState(isComplete)
 
-  function handleChangeState(){
-    onCheckChange();    
-    setCheckState(!checkState);    
+  function handleChangeState() {
+    onCheckChange();
+    setCheckState(!checkState);
   }
 
   function checkIcon(state: boolean) {
@@ -35,19 +35,34 @@ export function Task({ text, onRemove, onCheckChange, isComplete }: Props) {
           name='checkmark-circle'
           size={20}
           color='#8284FA'
-          onPress={handleChangeState}          
+          onPress={handleChangeState}
         />
+      )
+    }
+  }
+
+  function textState(state: boolean) {
+    if (state == false) {
+      return (
+        <Text
+          style={styles.taskText}>
+          {text}
+        </Text>
+      )
+    } else {
+      return (
+        <Text
+          style={styles.taskDoneText}>
+          {text}
+        </Text>
       )
     }
   }
 
   return (
     <View style={styles.container}>
-      {checkIcon(checkState)}      
-      <Text
-        style={styles.taskText}>
-        {text}
-      </Text>
+      {checkIcon(checkState)}
+      {textState(checkState)}
       <Ionicons
         name='trash-outline'
         size={20}
